@@ -1,7 +1,9 @@
-# Intro JQuery
+# Intro JQuery AJAX
 ## Rails Applications HW???
 
 ### Before Anything
+
+You'll be expected to have a lot of question about this assignment. As you go through the assignment write down at least `10` questions. You'll be asked to share your top five tomorrow.
 
 * `fork` and `clone` this lab.
 * Once cloned `git checkout -b working`
