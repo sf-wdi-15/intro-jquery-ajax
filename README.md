@@ -1,6 +1,24 @@
 # Intro JQuery
 ## Rails Applications HW???
 
+### Before Anything
+
+* `fork` and `clone` this lab.
+* Once cloned `git checkout -b working`
+* After each exercise
+  * `git add . -A`
+  * `git commit -m "some message"`
+* Once **COMPLETELY FINISHED** 
+  * make sure you `add` and `commit` everything.
+    * `git checkout master`
+    * `git merge working`
+    * `git push origin master`
+    * `git push origin working`
+  * On git hub you should submit a [pull request](https://help.github.com/articles/creating-a-pull-request/).
+
+If you have troubles with this workflow you'll have troubles when you're in a group and you should talk with an instructor.
+
+
 ### Background
 
 Let's play around with a single model and jQuery to create and display a simple `restaurant` model to our rails application. 
