@@ -7,8 +7,6 @@ class RestaurantsController < ApplicationController
       f.json { render json: @restaurants }
     end
 
-
-  def create 
-
-  end  
+ 
+end
 end
