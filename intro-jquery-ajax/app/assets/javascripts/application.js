@@ -39,3 +39,44 @@ $(function () {
     });
 });
 
+ $(function () {
+    var $container = $("#restaurants-container");
+    $.get("/restaurants.json")
+      .done(function (restaurants) {
+        restaurants.forEach(function (restaurant) {
+          $container.append("<div>" + restaurant.name + "</div>");
+        });
+      });
+
+  });
+
+
+ // Waiting for window to load
+$(function () {
+  // fetch the restaurant
+  var  $restaurantForm = $("#new_restaurant");
+
+  // wait for a submit event. 
+  // Read up on the `.on` method in JQuery docs
+  $restaurantForm.on("submit", function (event) {
+    // `event` is the event object that has info about
+    //    what was submitted
+
+    // This keeps the page from reloading.
+    event.preventDefualt();
+    alert("submitted");
+
+    // view page source to see the input
+    //  has this id. Then we grab it's value.
+    var restName = $("#restraunt_name").val();
+
+    // like before
+    $.post("/restaurants.json", {
+      restaurant: {
+        name: restName
+      }
+    }).then(function (createdRestaurant) {
+      console.log("CREATED:", createdRestaurant);
+    });
+  });
+});

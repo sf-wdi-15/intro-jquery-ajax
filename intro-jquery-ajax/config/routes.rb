@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+get "/create", to: "restaurants#create"
+
  resources :restaurants
 end
 
