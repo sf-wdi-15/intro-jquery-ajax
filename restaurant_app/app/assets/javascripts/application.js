@@ -46,7 +46,7 @@ $(function () {
     event.preventDefault();
     alert("submitted");
     var restName = $('#restaurant_name').val();
-    $.post('/restaurants', {
+    $.post('/restaurants.json', {
       restaurant: {
         name: restName
       }
