@@ -24,3 +24,27 @@ $(function () {
       console.log(data);
     });
 });
+
+// wait for the page to load
+$(function () {
+  // make a request to get all articles
+  $.get("/restaurants.json")
+    // wait for it to finish
+    .done(function (data) {
+      console.log(data);
+    });
+
+  // post to `restraunts.json`
+  // the `.json` tells our rails 
+  // app that we want `json` back
+  // after it creates something.
+  $.post("/restaurants.json",  {
+      restaurant: {
+        name: "blah"
+      }
+    })
+    // newly created restraurant
+    .done(function (data) {
+      console.log("New Restaurant", data)
+    });
+});
