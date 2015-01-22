@@ -28,8 +28,45 @@ $(function () {
   .done(function (data) {
     console.log("New Restaurant", data)
   });
-
-
 });
+
+$(function () {
+  var $body = $("body");
+  $.get("/restaurants.json")
+    .done(function (restaurants) {
+      restaurants.forEach(function (restaurant) {
+        $body.append("<div>" + restaurant.name + "</div>");
+      });
+    });
+});
+
+$(function () {
+  var $container = $("#restaurants-container");
+  $.get("/restaurants.json")
+    .done(function (restaurants) {
+      restaurants.forEach(function (restaurant) {
+        $container.append("<div>" + restaurant.name + "</div>");
+      });
+    });
+});
+
+$(function () {
+  var $restaurantForm = $("#new_restaurant");
+  $restaurantForm.on("submit", function (event){
+    event.preventDefault();
+    alert("submitted mothafucka!");
+
+    var restName = $("#restaurant_name").val();
+
+    $.post("/restaurants.json", {
+      restaurant: {
+        name: restName
+      }
+    }).then(function (createdRestaurant) {
+      console.log("CREATED:", createdRestaurant)
+    });
+  });
+});
+
 
 
