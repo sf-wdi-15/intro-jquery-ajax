@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// wait for the page to load
+$(function () {
+  // make a request to get all restaurants
+  $.get("/restaurants.json")
+    // wait for it to finish
+    .done(function (data) {
+      console.log(data);
+    });
+});
