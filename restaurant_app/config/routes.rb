@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: "restaurants#index"
 
   resources :restaurants
-
 end
 
 #     restaurants GET    /restaurants(.:format)          restaurants#index
