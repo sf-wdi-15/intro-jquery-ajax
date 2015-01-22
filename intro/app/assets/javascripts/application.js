@@ -17,29 +17,28 @@
 
 //wait for page to load
 $(function () {
-	//make a request to get all articles
-	$.get("/restaurants.json", function(rest) {
-		rest.forEach(function(x) {
-			console.log(x)
-		})
-	})
-	// wait for it to finish
-	.done(function (data) {
-		console.log(data);
-	});
+					var $body = $("body");
+					$.get("/restaurants.json")
+							// wait for it to finish
+							.done(function (rest) {
+								rest.forEach(function(x) {
+									$body.append("<div>" + x.name + "</div>");
+								})
+							})
 
-	// post to 'restaurants.json'
-	// the '.json' tells our rails
-	// app that we want 'json' back
-	// after it creates something.
-	$.post("/restaurants.json", {
-		restaurant: {
-			name: "blah"
-		}
+					// post to 'restaurants.json'
+					// the '.json' tells our rails
+					// app that we want 'json' back
+					// after it creates something.
+					$.post("/restaurants.json", {
+						restaurant: {
+							name: "blah"
+						}
 
-	})
-	// newly created restaurant
-	.done(function (data) {
-		console.log("New Restaurant", data)
-	});
+					})
+
+					// newly created restaurant
+					.done(function (data) {
+						console.log("New Restaurant", data)
+						})
 });
