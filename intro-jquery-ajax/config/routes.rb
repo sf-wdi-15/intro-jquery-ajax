@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'restaurants/index'
+
+  get 'restaurants/new'
+
+  get 'articles/index'
+
+  get 'articles/new'
+
  resources :restaurants
 end
 
