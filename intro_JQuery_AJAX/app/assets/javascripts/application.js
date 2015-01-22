@@ -32,3 +32,8 @@ $(function () {
 	 });
 });
 
+$(function () {
+	var $body = $("body");
+	$.get("/restaurants.json")
+	.done(function (restaurants))
+})
