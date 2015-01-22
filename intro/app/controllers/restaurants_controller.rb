@@ -1,4 +1,8 @@
 class RestaurantsController < ApplicationController
+
+  def new
+  end
+  
   def index
   	@restaurants = Restaurant.all
   	# creating a small api for restaurants. takes our database of restaurants and returns them as a json object
