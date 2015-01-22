@@ -15,12 +15,27 @@
 //= require turbolinks
 //= require_tree .
 
-//wait for the page to load
+// wait for the page to load
 $(function () {
-	//make a request to get all restaurants
-	$.get("/restaurants.json")
-	//wait for it to finish
-	.done(function (data) {
-		console.log(data);
-	});
+  // make a request to get all restaurants
+  $.get("/restaurants.json")
+    // wait for it to finish
+    .done(function (data) {
+      console.log(data);
+    });
+
+  // post to `restaurants.json`
+  // the `.json` tells our rails 
+  // app that we want `json` back
+  // after it creates something.
+  $.post("/restaurants.json",  {
+      restaurant: {
+        name: "Bun Mee"
+      }
+    })
+    // newly created restraurant
+    .done(function (data) {
+      console.log("New Restaurant", data)
+    });
 });
+
