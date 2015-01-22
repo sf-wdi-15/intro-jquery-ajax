@@ -1,3 +1,19 @@
+
+Questions:
+1) How does this jquery function work? $(function () {
+  // fetch the restaurant
+  var  $restaurantForm = $("#new_restaurant");
+
+2) How do you get the submit form to render?
+
+3) I waited to migrate and create examples in the db...this was helpful because I messed up my models at first and had to delete/re-model.
+
+4) Why is restaurant so hard to spell?
+
+5) Is it wrong to not have more questions?
+
+
+
 # Intro JQuery AJAX
 ## Rails Applications HW???
 
