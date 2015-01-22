@@ -39,3 +39,34 @@ $(function () {
     });
 });
 
+$(function () {
+	var $body = $('body')
+	$.get("/restaurants.json")
+		.done(function (restaurants) {
+			restaurants.forEach(function (restaurant) {
+				$body.append("<div>" + restaurant.name + "</div>")
+			})
+		})
+})
+
+$(function () {
+	var $container = $("#restaurants-container");
+	$.get('/restaurants.json')
+		.done(function (restaurants) {
+			restaurants.forEach(function (restaurant) {
+				$container.append("<div>" + restaurant.name + "</div>");
+			});
+		});
+});
+
+$(function () {
+	//fetch restaurant
+	var $restaurantForm = $("new_restaurant");
+
+	//wait for submit event.
+	//Read up on the '.on' method in JQuery docs
+	$restaurantForm.on("submit", function (event) {
+		event.preventDefault();
+		alert("Form has been Submitted");
+	});
+});
