@@ -35,7 +35,7 @@ Let's play around with a single model and jQuery to create and display a simple 
 
 We will need some routes
 
-* `resources` for `restaurants` and a `root to: "restraurants#index"`
+* `resources` for `restaurants` and a `root to: "restaurants#index"`
 
 We will need the following model
 
@@ -65,7 +65,7 @@ Let's start with building a partial API for `restaurants`. Let's setup the follo
 
 Go into you `rails console` and try to create a `Restaurant`. If that doesn't work start debugging... `:(`
 
-Verify that going to [`/restaurants.json`](localhost:3000/restaurants.json) sends a json list of `restraunts.`
+Verify that going to [`/restaurants.json`](localhost:3000/restaurants.json) sends a json list of `restaurants.`
 
 
 ### A Simple AJAX Request
@@ -134,7 +134,7 @@ Verify it works. Start your application and go to `localhost:3000`. You should s
 
 ### Creating
 
-Let's make a post request to create a `restraurant` every time we load the `/restraurants` route.
+Let's make a post request to create a `restaurant` every time we load the `/restaurants` route.
 
 
 ```
@@ -152,13 +152,13 @@ $(function () {
   // app that we want `json` back
   // after it creates something.
   $.post("/restraunts.json",  {
-      restraunt: {
+      restaurant: {
         name: "blah"
       }
     })
-    // newly created restraurant
+    // newly created restaurant
     .done(function (data) {
-      console.log("New Restraunt", data)
+      console.log("New Restaurant", data)
     });
 });
 
@@ -169,7 +169,7 @@ $(function () {
 
 
 
-However, we have to setup our backend to recieve the request and `respond_to` the `json` format.
+However, we have to setup our backend to receive the request and `respond_to` the `json` format.
 
 
 ```
@@ -179,14 +179,14 @@ However, we have to setup our backend to recieve the request and `respond_to` th
     respond_to do |f|
       # note how for HTML requests we still want to redirect
       f.html { redirect_to restaurants_path }
-      # we send back the new restraunt as JSON.
+      # we send back the new restaurant as JSON.
       f.json { render json: @restaurant }
     end
   end
 
 ```
 
-Now we our backend is setup to recieve data and we should try to send data to it using `$.post`. Luckily we already wrote that code earlier so all we have to do is refresh the `localhost:3000` page, and we should see the data in the Chrome Console.
+Now we our backend is setup to receive data and we should try to send data to it using `$.post`. Luckily we already wrote that code earlier so all we have to do is refresh the `localhost:3000` page, and we should see the data in the Chrome Console.
 
 ```
 > New Restaurant Object {id: 2, name: "blah", created_at: "2015-01-21T23:09:40.431Z", updated_at: "2015-01-21T23:09:40.431Z"}
@@ -195,8 +195,8 @@ Now we our backend is setup to recieve data and we should try to send data to it
 
 ### Exercises
 
-* Iterate throught all the `restaurants` and append them to the `body`.
-  * Add an `div` with `id` of `restaurants-conatiner` to `restaurants/index.html.erb`. Append all the elements to that `div` instead.
+* Iterate through all the `restaurants` and append them to the `body`.
+  * Add an `div` with `id` of `restaurants-container` to `restaurants/index.html.erb`. Append all the elements to that `div` instead.
 * Put a `form_for` a restaurant in your `index.html.erb`. 
 
   ```
@@ -211,7 +211,7 @@ Now we our backend is setup to recieve data and we should try to send data to it
 
   ```
 
-  * Listen for a `submit` event on the `form`. Note that if you look at the rendered for in the browser and view page source you'll see that the rendered form has id of `#new_restaurant`. When the form is submited add take in the event and `preventDefualt()`. Then alert `"submitted!"`.
+  * Listen for a `submit` event on the `form`. Note that if you look at the rendered for in the browser and view page source you'll see that the rendered form has id of `#new_restaurant`. When the form is submitted add take in the event and `preventDefualt()`. Then alert `"submitted!"`.
 
     ```
     // Waiting for window to load
@@ -246,7 +246,7 @@ restaurants-container` in the index.html.erb.
 
 ### Solutions If Stuck
 
-* Iterate throught all the `restaurants` and append them to the `body`
+* Iterate through all the `restaurants` and append them to the `body`
 
   ```
   $(function () {
@@ -260,7 +260,7 @@ restaurants-container` in the index.html.erb.
   });
 
   ```
-  * Add an `div` with `id` of `restaurants-conatiner` to `restaurants/index.html.erb`. Append all the elements to that `div` instead.
+  * Add an `div` with `id` of `restaurants-container` to `restaurants/index.html.erb`. Append all the elements to that `div` instead.
 
     ```
       $(function () {
@@ -288,7 +288,7 @@ restaurants-container` in the index.html.erb.
 
   ```
 
-  * Listen for a `submit` event on the `form`. Note that if you look at the rendered for in the browser and view page source you'll see that the rendered form has id of `#new_restaurant`. When the form is submited add take in the event and `preventDefualt()`. Then alert `"submitted!"`.
+  * Listen for a `submit` event on the `form`. Note that if you look at the rendered for in the browser and view page source you'll see that the rendered form has id of `#new_restaurant`. When the form is submitted add take in the event and `preventDefualt()`. Then alert `"submitted!"`.
 
     ```
     // Waiting for window to load
@@ -330,7 +330,7 @@ restaurants-container` in the index.html.erb.
 
         // view page source to see the input
         //  has this id. Then we grab it's value.
-        var restName = $("#restraunt_name").val();
+        var restName = $("#restaurant_name").val();
 
         // like before
         $.post("/restaurants.json", {
