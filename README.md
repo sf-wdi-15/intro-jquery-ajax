@@ -197,7 +197,7 @@ Now we our backend is setup to receive data and we should try to send data to it
 
 * Iterate through all the `restaurants` and append them to the `body`.
   * Add an `div` with `id` of `restaurants-container` to `restaurants/index.html.erb`. Append all the elements to that `div` instead.
-* Put a `form_for` a restaurant in your `index.html.erb`. 
+* Put a `form_for` a restaurant in your `index.html.erb`. Note this assumes you'll be adding a `@restaurant = Restaurant.new` in the `restaurants#index`.
 
   ```
   <%= form_for @restaurant do |f| %>
